@@ -23,14 +23,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-global $PAGE;
-
 if ($hassiteconfig) {
 	$courses = get_courses();
-	$result_courses = array();
+	$resultcourses = array();
 
 	foreach ($courses as $course) {
-		$result_courses[$course->id] = $course->fullname;
+		$resultcourses[$course->id] = $course->fullname;
 	}
 
 	$ADMIN->add('modules', new admin_category('panorama', new lang_string('panorama', 'local_panorama')));
@@ -75,7 +73,7 @@ if ($hassiteconfig) {
 		new lang_string('courses', 'local_panorama'),
 		new lang_string('coursesdesc', 'local_panorama'),
 		[],
-		$result_courses
+		$resultcourses
 	));
 
 	$ADMIN->add('panorama', $settings);
