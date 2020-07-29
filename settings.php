@@ -70,18 +70,6 @@ if ($hassiteconfig) {
 		PARAM_TEXT
 	));
 
-	$environment_setting = new admin_setting_configselect(
-		'panorama/environment',
-		new lang_string('environment', 'local_panorama'),
-		new lang_string('environmentdesc', 'local_panorama'),
-		'Production',
-		array('Local' => 'Local', 'Staging' => 'Staging', 'Production' => 'Production')
-	);
-
-	$environment_setting->set_lockable(true);
-
-	$settings->add($environment_setting);
-
 	$settings->add(new admin_setting_configmultiselect(
 		'panorama/courses',
 		new lang_string('courses', 'local_panorama'),
